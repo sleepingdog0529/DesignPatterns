@@ -11,3 +11,4 @@ project ("DesignPatterns")
 
 # サブプロジェクトを含めます。
 add_subdirectory ("EventDispatcher")
+add_subdirectory ("Strategy")

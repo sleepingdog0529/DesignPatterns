@@ -1,48 +1,54 @@
 ﻿#include "event_dispatcher.h"
 #include <iostream>
 
-enum class Event{ Hey, Hello };
+enum class PrintEvent { Hello, HelloWorld };
 
-void Hey(const std::string& name)
+void PrintHello()
 {
-	std::cout << "Hey " << name << "." << std::endl;
+	std::cout << "Hello";
 }
 
-void Hello(const std::string& name)
+void PrintWorld()
 {
-	std::cout << "Hello " << name << "." << std::endl;
+	std::cout << "World";
 }
 
-void GoodBye(const std::string& name)
+void PrintPriod()
 {
-	std::cout << "GoodBye " << name << "." << std::endl;
+	std::cout << "." << std::endl;
+}
+
+void PrintExclamation()
+{
+	std::cout << "!!" << std::endl;
 }
 
 int main()
 {
-	using namespace wx2;
+	EventDispatcher<PrintEvent> dispatcher;
 
-	EventDispatcher<Event, std::string> dispatcher;
+	EventListener<PrintEvent> hello(PrintHello);
+	EventListener<PrintEvent> world(PrintWorld);
+	EventListener<PrintEvent> priod(PrintPriod);
+	EventListener<PrintEvent> excl(PrintExclamation);
 
-	EventListener<Event, std::string> hey(Hey);
-	EventListener<Event, std::string> hello(Hello);
-	EventListener<Event, std::string> goodbye(GoodBye);
+	dispatcher.AppendListener(PrintEvent::Hello, hello);
+	dispatcher.AppendListener(PrintEvent::Hello, priod);
+	dispatcher.AppendListener(PrintEvent::HelloWorld, hello);
+	dispatcher.AppendListener(PrintEvent::HelloWorld, world);
+	dispatcher.AppendListener(PrintEvent::HelloWorld, priod);
 
-	dispatcher.AddEventListener(Event::Hey, hey);
-	dispatcher.AddEventListener(Event::Hey, goodbye);
+	std::cout << "Dispatch PrintEvent::Hello" << std::endl;
+	dispatcher.Dispatch(PrintEvent::Hello);
 
-	dispatcher.AddEventListener(Event::Hello, hello);
-	dispatcher.AddEventListener(Event::Hello, goodbye);
+	std::cout << "Dispatch PrintEvent::HelloWorld" << std::endl;
+	dispatcher.Dispatch(PrintEvent::HelloWorld);
 
-	dispatcher.Dispatch(Event::Hey, "bob");
-	dispatcher.Dispatch(Event::Hello, "tom");
+	dispatcher.RemoveListener(PrintEvent::HelloWorld, priod);
+	dispatcher.AppendListener(PrintEvent::HelloWorld, excl);
 
-	dispatcher.RemoveEventListener(Event::Hey, goodbye);
-
-	std::cout << "==============================" << std::endl;
-
-	dispatcher.Dispatch(Event::Hey, "bob");
-	dispatcher.Dispatch(Event::Hello, "tom");
+	std::cout << "Dispatch PrintEvent::HelloWorld" << std::endl;
+	dispatcher.Dispatch(PrintEvent::HelloWorld);
 
 	return 0;
 }
