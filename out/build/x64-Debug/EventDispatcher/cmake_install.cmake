@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/sleep/source/repos/DesignPatterns/EventDispatcher
+# Install script for directory: C:/Users/TARO/Documents/GitHub/DesignPatterns/EventDispatcher
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Users/sleep/source/repos/DesignPatterns/out/install/x64-Debug")
+  set(CMAKE_INSTALL_PREFIX "C:/Users/TARO/Documents/GitHub/DesignPatterns/out/install/x64-Debug")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

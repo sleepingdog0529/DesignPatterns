@@ -13,7 +13,7 @@
       "variables": [
         {
           "name": "CMAKE_CXX_FLAGS",
-          "value": "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /std:c++latest",
+          "value": "/DWIN32 /D_WINDOWS /W3 /GR /EHsc",
           "type": "STRING"
         }
       ]
