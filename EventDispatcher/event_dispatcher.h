@@ -123,7 +123,10 @@ namespace wx2
 		void Dispatch(const EventType& event, const Args&... args)
 		{
 			auto [itr, end] = listeners_.equal_range(event);
-			std::for_each(itr, end, [&](auto& listener){ listener.second->OnDispatch(args...); });
+			for (; itr != end; ++itr)
+			{
+				itr->second->OnDispatch(args...);
+			}
 		}
 
 		/**
