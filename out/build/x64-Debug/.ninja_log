@@ -1,0 +1,6 @@
+# ninja log v5
+4	450	6613475934014408	build.ninja	6408a3f9c6878230
+1	2559	6613475613353435	EventDispatcher/CMakeFiles/EventDispatcher.dir/event_dispatcher.cpp.obj	ad909419beb1453e
+2560	3196	6613475619564837	EventDispatcher/EventDispatcher.exe	ef6793ca0e59f163
+1	2840	6613476014779455	EventDispatcher/CMakeFiles/EventDispatcher.dir/event_dispatcher.cpp.obj	f0262f5957d4ec80
+2841	3175	6613476017660099	EventDispatcher/EventDispatcher.exe	ef6793ca0e59f163
