@@ -2,4 +2,4 @@
 cmake_minimum_required (VERSION 3.8)
 
 # ソースをこのプロジェクトの実行可能ファイルに追加します。
-add_executable (Strategy "strategy.cpp" "strategy.h")
+add_executable (Pimpl "pimpl.cpp" "pimpl.h")

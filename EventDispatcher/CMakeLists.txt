@@ -1,6 +1,4 @@
-﻿# CMakeList.txt : EventDispatcher の CMake プロジェクト。ソースを含めて、次を定義します:
-# プロジェクト専用ロジックはこちらです。
-#
+﻿# CMakeの最小バージョン
 cmake_minimum_required (VERSION 3.8)
 
 # ソースをこのプロジェクトの実行可能ファイルに追加します。
